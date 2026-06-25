@@ -1,7 +1,7 @@
 all:
-	g++ -std=c++17 -I ./aux_func src/hash_compare.cpp -o hash_compare -lcrypto -lssl
+	g++ -std=c++17 -I ./aux src/hash_compare.cpp -o hash_compare -lcrypto -lssl
 debug:
-	g++ -g -std=c++17 -I ./aux_func src/hash_compare.cpp -o hash_compare -lcrypto -lssl
+	g++ -g -std=c++17 -I ./aux src/hash_compare.cpp -o hash_compare -lcrypto -lssl
 clean:
 	rm -rf samples/*
 # Windows:
