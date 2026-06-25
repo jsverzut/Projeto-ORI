@@ -115,7 +115,7 @@ int main(int argc, char **argv) {
             }
             
             // Exibe os dados baseando-se no enum
-            std::cout << "\n[ALERTA DE SEGURAN├çA] ARQUIVO MALICIOSO DETECTADO!\n";
+            std::cout << "\n[ALERTA DE SEGURANCA] ARQUIVO MALICIOSO DETECTADO!\n";
             std::cout << "========================================================\n";
             if (campos.size() > SIGNATURE) {
                 std::cout << "-> Identificacao/Familia: " << campos[SIGNATURE-1] << "\n";
