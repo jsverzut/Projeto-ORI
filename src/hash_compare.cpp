@@ -27,7 +27,7 @@ enum ColunasCSV {
     TLSH            // 13
 };
 
-// Fun├º├úo auxiliar para remover aspas extras das strings extra├¡das do CSV
+// Funcao auxiliar para remover aspas extras das strings extraidas do CSV
 std::string limpar_aspas(std::string str) {
     if (str.empty()) return str;
     // Remove espa├ºos em branco nas pontas
@@ -59,13 +59,13 @@ int main(int argc, char **argv) {
 
         std::string linha;
         
-        // Pula o cabe├ºalho do CSV (o cabe├ºalho)
+        // Pula o cabecalho do CSV (o cabecalho)
 
 	std::getline(fileDB, linha);
 
         // 1. CARREGA O CSV NA B-TREE
         while (true) {
-            // Guarda posi├º├úo onde a pr├│xima linha come├ºa
+            // Guarda a posicao de onda a proxima linha comeca
             std::streampos offset_atual = fileDB.tellg(); 
 
             if (!std::getline(fileDB, linha)) {
@@ -109,7 +109,7 @@ int main(int argc, char **argv) {
             std::vector<std::string> campos;
             std::string campo;
 
-            // Divide a linha inteira por v├¡rgulas para preencher o vetor
+            // Divide a linha inteira por virgulas para preencher o vetor
             while (std::getline(aux, campo, ',')) {
                 campos.push_back(limpar_aspas(campo));
             }
@@ -118,7 +118,7 @@ int main(int argc, char **argv) {
             std::cout << "\n[ALERTA DE SEGURAN├çA] ARQUIVO MALICIOSO DETECTADO!\n";
             std::cout << "========================================================\n";
             if (campos.size() > SIGNATURE) {
-                std::cout << "-> Identifica├º├úo/Fam├¡lia: " << campos[SIGNATURE-1] << "\n";
+                std::cout << "-> Identificacao/Familia: " << campos[SIGNATURE-1] << "\n";
             }
             if (campos.size() > FILE_NAME) {
                 std::cout << "-> Nome do Arquivo Original: " << campos[FILE_NAME] << "\n";
@@ -130,7 +130,7 @@ int main(int argc, char **argv) {
             std::cout << "========================================================\n";
         }   
         else {
-            std::cout << "\n[SEGURO] O arquivo analisado n├úo consta no banco de dados.\n";
+            std::cout << "\n[SEGURO] O arquivo analisado nao consta no banco de dados.\n";
         }
 
     } catch (const std::exception& erro) {
